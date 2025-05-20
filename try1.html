@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Fire Dehazer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+    }
+    h2, h3 {
+      text-align: center;
+    }
+    input[type="text"], input[type="password"], input[type="email"], input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    nav {
+      background: #007bff;
+      padding: 10px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .quote {
+      margin-top: 20px;
+      font-style: italic;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="page"></div>
+
+  <script>
+    function showLogin() {
+      document.getElementById('page').innerHTML = `
+        <div class="container">
+          <h2>Login</h2>
+          <input type="text" placeholder="Username" />
+          <input type="password" placeholder="Password" />
+          <button onclick="showLanding()">Login</button>
+          <p style="text-align:center">or</p>
+          <button onclick="showRegister()">Register</button>
+        </div>
+      `;
+    }
+
+    function showRegister() {
+      document.getElementById('page').innerHTML = `
+        <div class="container">
+          <h2>Register</h2>
+          <input type="text" placeholder="Full Name" />
+          <input type="email" placeholder="Email" />
+          <input type="text" placeholder="Username" />
+          <input type="password" placeholder="Password" />
+          <button onclick="showLanding()">Submit</button>
+        </div>
+      `;
+    }
+
+    function showLanding() {
+      document.getElementById('page').innerHTML = `
+        <nav>
+          <div>Smart Fire Dehazer</div>
+          <div>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+          </div>
+        </nav>
+        <div class="container">
+          <h3>Welcome to Smart Fire Dehazer</h3>
+          <div class="quote">“Bringing clarity to chaos — enhancing safety through vision.”</div>
+          <button onclick="showUpload()">Let's Start</button>
+        </div>
+      `;
+    }
+
+    function showUpload() {
+      document.getElementById('page').innerHTML = `
+        <div class="container">
+          <h3>Upload an Image</h3>
+          <input type="file" />
+          <button onclick="showOutput()">Get Output</button>
+        </div>
+      `;
+    }
+
+    function showOutput() {
+      document.getElementById('page').innerHTML = `
+        <div class="container">
+          <h3>Dehazed Image Output</h3>
+          <img src="temp.png" alt="Output Image" style="width:100%; height:auto; border:1px solid #ccc;" />
+        </div>
+      `;
+    }
+
+    showLogin();
+  </script>
+</body>
+</html>

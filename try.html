@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Fire Dehazer</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      margin: 0;
+      background: #f0f4f7;
+    }
+    .container {
+      padding: 20px;
+      max-width: 400px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    input[type="text"], input[type="password"], input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    nav {
+      background: #007BFF;
+      padding: 10px;
+      color: white;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+    .quote {
+      padding: 20px;
+      text-align: center;
+      font-style: italic;
+    }
+    .upload {
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="loginRegister">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="goToLanding()">Login</button>
+  <p style="text-align:center;">or</p>
+  <button onclick="showRegister()">Register</button>
+</div>
+
+<div class="container" id="registerForm" style="display:none;">
+  <h2>Register</h2>
+  <input type="text" placeholder="Username">
+  <input type="email" placeholder="Email">
+  <input type="password" placeholder="Password">
+  <button onclick="goToLanding()">Submit</button>
+</div>
+
+<div id="landingPage" style="display:none;">
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+  <div class="quote">
+    <h2>Smart Fire Dehazer</h2>
+    <p>Enhancing visibility through technology in the toughest environments.</p>
+    <button onclick="goToUpload()">Let's Start</button>
+  </div>
+</div>
+
+<div id="uploadPage" style="display:none;">
+  <nav>
+    <a href="#">Upload</a>
+    <a href="#">Status</a>
+    <a href="#">Help</a>
+  </nav>
+  <div class="upload">
+    <h2>Upload Image</h2>
+    <input type="file" id="imageInput"><br><br>
+    <button onclick="showOutput()">Get Output</button>
+  </div>
+</div>
+
+<div id="outputPage" style="display:none;">
+  <nav>
+    <a href="#">Output</a>
+    <a href="#">Analysis</a>
+    <a href="#">Exit</a>
+  </nav>
+  <div class="upload">
+    <h2>Processed Image Output</h2>
+    <img id="outputImage" src="https://via.placeholder.com/400x300?text=Dehazed+Image" alt="Output Image">
+  </div>
+</div>
+
+<script>
+  function showRegister() {
+    document.getElementById("loginRegister").style.display = "none";
+    document.getElementById("registerForm").style.display = "block";
+  }
+
+  function goToLanding() {
+    document.getElementById("loginRegister").style.display = "none";
+    document.getElementById("registerForm").style.display = "none";
+    document.getElementById("landingPage").style.display = "block";
+  }
+
+  function goToUpload() {
+    document.getElementById("landingPage").style.display = "none";
+    document.getElementById("uploadPage").style.display = "block";
+  }
+
+  function showOutput() {
+    document.getElementById("uploadPage").style.display = "none";
+    document.getElementById("outputPage").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
